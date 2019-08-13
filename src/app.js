@@ -47,7 +47,11 @@ const useStyles = makeStyles(theme => ({
 export default function CustomizedTables() {
 
     var savedTransactions = [];
-    savedTransactions.push(createData("January 6th, 2019", "Food", "Purchased from Micky D's", 6.52));
+
+    var localStorageTransactions = JSON.parse(localStorage.getItem("transactionData")) || [];
+    for (let transaction of localStorageTransactions) {
+        savedTransactions.push(createData(transaction[0], transaction[1], transaction[2], transaction[3]))
+    }
 
     var [rows, setRows] = React.useState(savedTransactions);
 
@@ -62,6 +66,9 @@ export default function CustomizedTables() {
         setType("");
         setDescription("");
         setAmount("");
+
+        localStorageTransactions.push([date, type, description, amount]);
+        localStorage.setItem("transactionData", JSON.stringify(localStorageTransactions))
     }
 
     const classes = useStyles();
