@@ -32,18 +32,11 @@ function createData(date, type, description, amount) {
     return {date, type, description, amount};
 }
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24),
-    createData('Ice cream sandwich', 237, 9.0, 37),
-    createData('Eclair', 262, 16.0, 24),
-    createData('Cupcake', 305, 3.7, 67),
-    createData('Gingerbread', 356, 16.0, 49),
-];
 
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(0),
         overflowX: 'auto',
     },
     table: {
@@ -52,11 +45,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CustomizedTables() {
+
+    const rows = [
+        createData('Frozen yoghurt', 159, 6.0, 24),
+        createData('Ice cream sandwich', 237, 9.0, 37),
+        createData('Eclair', 262, 16.0, 24),
+        createData('Cupcake', 305, 3.7, 67),
+        createData('Gingerbread', 356, 16.0, 49),
+    ];
+
     const classes = useStyles();
 
     return (
         <div>
-            <Button variant="contained">Submit</Button>
+            <StyledTableCell><Button variant="contained">Submit</Button></StyledTableCell>
             <Paper className={classes.root}>
                 <Table className={classes.table}>
                     <TableHead>
