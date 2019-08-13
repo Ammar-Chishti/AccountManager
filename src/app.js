@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {TextField} from "@material-ui/core";
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -64,9 +65,15 @@ export default function CustomizedTables() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
+                    <StyledTableRow>
+                        <StyledTableCell><TextField/></StyledTableCell>
+                        <StyledTableCell><TextField/></StyledTableCell>
+                        <StyledTableCell><TextField/></StyledTableCell>
+                        <StyledTableCell><TextField/></StyledTableCell>
+                    </StyledTableRow>
                     {rows.map(row => (
                         <StyledTableRow key={row.date}>
-                            <StyledTableCell component="th" scope="row" align="left">
+                            <StyledTableCell  align="left">
                                 {row.date}
                             </StyledTableCell>
                             <StyledTableCell align="left">{row.type}</StyledTableCell>
