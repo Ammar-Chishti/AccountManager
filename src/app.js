@@ -1,13 +1,12 @@
 import React from 'react';
-import {withStyles, makeStyles} from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {TextField} from "@material-ui/core";
-import {Button} from "@material-ui/core";
+import {Button, TextField} from "@material-ui/core";
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -54,7 +53,6 @@ export default function CustomizedTables() {
     }
 
     var [rows, setRows] = React.useState(savedTransactions);
-
     var [date, setDate] = React.useState("");
     var [type, setType] = React.useState("");
     var [description, setDescription] = React.useState("");
@@ -89,15 +87,19 @@ export default function CustomizedTables() {
                     <TableBody>
                         <StyledTableRow>
                             <StyledTableCell><TextField
+                                value={date}
                                 onChange={input => setDate(input.target.value)}/>
                             </StyledTableCell>
                             <StyledTableCell><TextField
+                                value={type}
                                 onChange={input => setType(input.target.value)}/>
                             </StyledTableCell>
                             <StyledTableCell><TextField
+                                value={description}
                                 onChange={input => setDescription(input.target.value)}/>
                             </StyledTableCell>
                             <StyledTableCell><TextField
+                                value={amount}
                                 onChange={input => setAmount(input.target.value)}/>
                             </StyledTableCell>
                         </StyledTableRow>
