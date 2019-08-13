@@ -25,16 +25,16 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+function createData(date, type, description, amount) {
+    return { date, type, description, amount };
 }
 
 const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    createData('Frozen yoghurt', 159, 6.0, 24),
+    createData('Ice cream sandwich', 237, 9.0, 37),
+    createData('Eclair', 262, 16.0, 24),
+    createData('Cupcake', 305, 3.7, 67),
+    createData('Gingerbread', 356, 16.0, 49),
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -56,23 +56,21 @@ export default function CustomizedTables() {
             <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                        <StyledTableCell align="right">Calories</StyledTableCell>
-                        <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+                        <StyledTableCell align="left">Date</StyledTableCell>
+                        <StyledTableCell align="left">Type</StyledTableCell>
+                        <StyledTableCell align="left">Description</StyledTableCell>
+                        <StyledTableCell align="left">Amount</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map(row => (
-                        <StyledTableRow key={row.name}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.name}
+                        <StyledTableRow key={row.date}>
+                            <StyledTableCell component="th" scope="row" align="left">
+                                {row.date}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                            <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                            <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                            <StyledTableCell align="left">{row.type}</StyledTableCell>
+                            <StyledTableCell align="left">{row.description}</StyledTableCell>
+                            <StyledTableCell align="left">{row.amount}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
