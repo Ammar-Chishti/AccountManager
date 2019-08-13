@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {TextField} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -28,7 +29,7 @@ const StyledTableRow = withStyles(theme => ({
 }))(TableRow);
 
 function createData(date, type, description, amount) {
-    return { date, type, description, amount };
+    return {date, type, description, amount};
 }
 
 const rows = [
@@ -54,35 +55,38 @@ export default function CustomizedTables() {
     const classes = useStyles();
 
     return (
-        <Paper className={classes.root}>
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell align="left">Date</StyledTableCell>
-                        <StyledTableCell align="left">Type</StyledTableCell>
-                        <StyledTableCell align="left">Description</StyledTableCell>
-                        <StyledTableCell align="left">Amount</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <StyledTableRow>
-                        <StyledTableCell><TextField/></StyledTableCell>
-                        <StyledTableCell><TextField/></StyledTableCell>
-                        <StyledTableCell><TextField/></StyledTableCell>
-                        <StyledTableCell><TextField/></StyledTableCell>
-                    </StyledTableRow>
-                    {rows.map(row => (
-                        <StyledTableRow key={row.date}>
-                            <StyledTableCell  align="left">
-                                {row.date}
-                            </StyledTableCell>
-                            <StyledTableCell align="left">{row.type}</StyledTableCell>
-                            <StyledTableCell align="left">{row.description}</StyledTableCell>
-                            <StyledTableCell align="left">{row.amount}</StyledTableCell>
+        <div>
+            <Button variant="contained">Submit</Button>
+            <Paper className={classes.root}>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell align="left">Date</StyledTableCell>
+                            <StyledTableCell align="left">Type</StyledTableCell>
+                            <StyledTableCell align="left">Description</StyledTableCell>
+                            <StyledTableCell align="left">Amount</StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <StyledTableRow>
+                            <StyledTableCell><TextField/></StyledTableCell>
+                            <StyledTableCell><TextField/></StyledTableCell>
+                            <StyledTableCell><TextField/></StyledTableCell>
+                            <StyledTableCell><TextField/></StyledTableCell>
                         </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </Paper>
+                        {rows.map(row => (
+                            <StyledTableRow key={row.date}>
+                                <StyledTableCell align="left">
+                                    {row.date}
+                                </StyledTableCell>
+                                <StyledTableCell align="left">{row.type}</StyledTableCell>
+                                <StyledTableCell align="left">{row.description}</StyledTableCell>
+                                <StyledTableCell align="left">{row.amount}</StyledTableCell>
+                            </StyledTableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </Paper>
+        </div>
     );
 }
