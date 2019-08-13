@@ -51,11 +51,20 @@ export default function CustomizedTables() {
 
     var [rows, setRows] = React.useState(savedTransactions);
 
+    var [date, setDate] = React.useState("");
+    var [type, setType] = React.useState("");
+    var [description, setDescription] = React.useState("");
+    var [amount, setAmount] = React.useState("");
+
+    function addRow() {
+        setRows([...rows, createData(date, type, description, amount)]);
+    }
+
     const classes = useStyles();
 
     return (
         <div>
-            <StyledTableCell><Button variant="contained">Submit</Button></StyledTableCell>
+            <StyledTableCell><Button variant="contained" onClick={addRow}>Submit</Button></StyledTableCell>
             <Paper className={classes.root}>
                 <Table className={classes.table}>
                     <TableHead>
