@@ -58,6 +58,10 @@ export default function CustomizedTables() {
 
     function addRow() {
         setRows([...rows, createData(date, type, description, amount)]);
+        setDate("");
+        setType("");
+        setDescription("");
+        setAmount("");
     }
 
     const classes = useStyles();
@@ -77,10 +81,18 @@ export default function CustomizedTables() {
                     </TableHead>
                     <TableBody>
                         <StyledTableRow>
-                            <StyledTableCell><TextField/></StyledTableCell>
-                            <StyledTableCell><TextField/></StyledTableCell>
-                            <StyledTableCell><TextField/></StyledTableCell>
-                            <StyledTableCell><TextField/></StyledTableCell>
+                            <StyledTableCell><TextField
+                                onChange={input => setDate(input.target.value)}/>
+                            </StyledTableCell>
+                            <StyledTableCell><TextField
+                                onChange={input => setType(input.target.value)}/>
+                            </StyledTableCell>
+                            <StyledTableCell><TextField
+                                onChange={input => setDescription(input.target.value)}/>
+                            </StyledTableCell>
+                            <StyledTableCell><TextField
+                                onChange={input => setAmount(input.target.value)}/>
+                            </StyledTableCell>
                         </StyledTableRow>
                         {rows.map(row => (
                             <StyledTableRow key={row.date}>
