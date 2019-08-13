@@ -46,13 +46,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function CustomizedTables() {
 
-    const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24),
-        createData('Ice cream sandwich', 237, 9.0, 37),
-        createData('Eclair', 262, 16.0, 24),
-        createData('Cupcake', 305, 3.7, 67),
-        createData('Gingerbread', 356, 16.0, 49),
-    ];
+    var savedTransactions = [];
+    savedTransactions.push(createData("January 6th, 2019", "Food", "Purchased from Micky D's", 6.52));
+
+    var [rows, setRows] = React.useState(savedTransactions);
 
     const classes = useStyles();
 
